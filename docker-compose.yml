@@ -3,10 +3,11 @@ version: "3.9"
 services:
   web:
     build: .
-    command: python core/manage.py runserver 0.0.0.0:8000
     container_name: web
+    working_dir: /app
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/app
+      - ./core:/app
     ports:
       - "8000:8000"
     environment:
